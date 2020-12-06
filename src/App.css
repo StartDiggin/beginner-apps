@@ -1,3 +1,38 @@
+@import "./css/header.css";
+
 .App {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
+}
+
+/* Header section  */
+.header {
+  grid-column: 1/-1;
+}
+
+.main {
+  grid-column: 1/-1;
+  border: 1px solid black;
+}
+
+/* Navigation section  */
+.nav {
+  grid-column: 1/-1;
+  border: 1px solid orange;
+}
+
+.nav__links {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+
+.nav__item {
+  text-decoration: none;
+}
+
+/* sections */
+.section {
+  background-color: grey;
 }

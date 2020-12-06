@@ -9,7 +9,7 @@ const Home = () => {
     });
 
 
-    return <div>
+    return <div className="section">
         <h1>Home</h1>
         <h2>You Clicked {count} times</h2>
         <button onClick={() => setCount(count + 1)} >Add 1</button>

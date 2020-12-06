@@ -1,12 +1,14 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom'
+import LinkData from './APPS/LinkData'
 
 const Nav = () => {
+    const Apps = LinkData.map(link => <NavLink to={"/" + link} className="nav__item">{link}</NavLink>)
     return(
-        <div>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+        <div className="nav">
+            <ul className="nav__links">
+                {Apps}
+            </ul>
         </div>
     )
 }
