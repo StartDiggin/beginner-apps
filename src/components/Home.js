@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 
 const Home = () => {
     const [count, setCount] = useState(0)
 
-    useEffect(() => {
-        document.title = `You clicked ${count} times`
-    });
+    
 
 
     return <div className="section">
