@@ -1,4 +1,5 @@
 @import "./css/header.css";
+@import "./css/randomMeme.css";
 
 .App {
   display: grid;

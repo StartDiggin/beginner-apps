@@ -1,12 +1,88 @@
 import React from 'react'
 
 
-const RandomMeme = () => {
-    return(
-        <div className="section">
-            <h1>Random Meme</h1>
-        </div>
-    )
+
+class RandomMeme extends React.Component{
+    state={
+        topText: "Top Text",
+        btmText: "Bottom Text",
+        randImg: "https://i.imgflip.com/3si4.jpg",
+        imgs: []
+    }
+
+    componentDidMount(){
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(res => {
+            const {memes} = res.data
+            this.setState({
+                imgs: memes
+            })
+        })
+    }
+
+    // handle change 
+    handleChange = (e) => {
+        const {name, value } = e.target 
+        this.setState({
+            [name]:value
+        })
+    }
+
+    // handle submit 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let imgsLen = this.state.imgs.length 
+        let num = Math.floor(Math.random() * imgsLen)
+        let img =   this.state.imgs[num].url 
+        this.setState(
+            {
+                randImg: img
+            }
+        )
+    
+    }
+
+
+
+    render(){
+        return(
+            <div className="section">
+                <h1>Random memes App</h1>
+                {/* form for inputing text  */}
+                <form onSubmit={this.handleSubmit}>
+                    <label>Top text:</label>
+                    <input 
+                        type="text"
+                        name="topText"
+                        value={this.state.topText}
+                        placeholder="Top text"
+                        onChange={this.handleChange}
+                    /> <br />
+                    <label>Bottom text:</label>
+                    <input 
+                        type="text"
+                        name="btmText"
+                        value={this.state.btmText}
+                        placeholder="Bottom text"
+                        onChange={this.handleChange}
+                    />
+                    <button>Meme</button>
+                </form>
+                {/* display div  */}
+                <div>
+                    <img className="randImg" src={this.state.randImg} alt="meme img"/>
+                    <h3 className="topText">{this.state.topText}</h3>
+                    <h3 className="btmText">{this.state.btmText}</h3>
+                </div>
+               
+            </div>
+        )
+
+    }
+
+
 }
 
-export default RandomMeme
+
+export default RandomMeme;

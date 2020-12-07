@@ -7,10 +7,9 @@ const hex = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
 
 class RandomColor extends React.Component {
     state={
-        color: "red",
-        hexColor:"#000",
-        rgbaColor: "rgba(0,1,2,0.3)",
-        hslaColor:"hsla"
+        hexColor:"",
+        rgbaColor: "",
+        hslaColor:""
     }
 
 
