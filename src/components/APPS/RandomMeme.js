@@ -1,11 +1,10 @@
 import React from 'react'
 
 
-
 class RandomMeme extends React.Component{
     state={
-        topText: "Top Text",
-        btmText: "Bottom Text",
+        topText: "",
+        btmText: "",
         randImg: "https://i.imgflip.com/3si4.jpg",
         imgs: []
     }
@@ -37,9 +36,13 @@ class RandomMeme extends React.Component{
         let img =   this.state.imgs[num].url 
         this.setState(
             {
+                
                 randImg: img
             }
         )
+        e.target.topText.value =""
+        e.target.btmText.value =""
+      
     
     }
 
@@ -55,16 +58,13 @@ class RandomMeme extends React.Component{
                     <input 
                         type="text"
                         name="topText"
-                        value={this.state.topText}
-                        placeholder="Top text"
+                        // value={this.state.topText}
                         onChange={this.handleChange}
                     /> <br />
                     <label>Bottom text:</label>
                     <input 
                         type="text"
                         name="btmText"
-                        value={this.state.btmText}
-                        placeholder="Bottom text"
                         onChange={this.handleChange}
                     />
                     <button>Meme</button>

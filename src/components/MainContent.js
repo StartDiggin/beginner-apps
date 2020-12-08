@@ -10,7 +10,6 @@ import todo from './APPS/TodoApp'
 
 import Error from './Error'
 import Home from './Home'
-import Landing from './landing'
 import Nav from './Navigation'
 
 
@@ -22,8 +21,7 @@ class Header extends Component {
               <Nav />
             <div className="main__content">
                 <Switch>
-                <Route path="/" component={Landing} exact/>
-                <Route path="/home" component={Home} />
+                <Route path="/" component={Home} exact/>
                 <Route path="/contact" component={contact}/>
                 <Route path="/randomcolor" component={randomcolor}/>
                 <Route path="/randommeme" component={randommeme}/>
