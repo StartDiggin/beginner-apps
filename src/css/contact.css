@@ -1,0 +1,37 @@
+.contact {
+  width: 100vw;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.contactForm {
+  grid-column: 1/-1;
+}
+
+.contactDisplay {
+  grid-column: 1/-1;
+}
+
+.contactView {
+  position: relative;
+  visibility: hidden;
+  grid-column: 2/3;
+  border: 1px solid pink;
+  margin-top: 50px;
+  height: 400px;
+}
+
+.activeView {
+  visibility: visible;
+  color: orange;
+}
+
+.contactViewClose {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  font-size: 20px;
+  background-color: #fff;
+  cursor: pointer;
+}
