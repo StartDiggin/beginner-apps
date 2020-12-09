@@ -9,7 +9,8 @@ class Contact extends React.Component{
         lastName: "",
         phoneNum: "",
         email: "",
-        contacts: []
+        contacts: [],
+        phoneBook: []
     }
 
     handleChange = (e) => {
@@ -38,7 +39,28 @@ class Contact extends React.Component{
         )
     }
 
+    handleLetter = (e) => {
+        let letter = e.target.value.toLowerCase()
+        // let sortLetter = lastName.slice(0,1).toLowerCase()
+        // let phoneArr = this.state.phoneBook 
+        let phoneArr = this.state.contacts.filter(contact => {
+            let sortLet = contact.lastName.slice(0,1).toLowerCase()
+            let phoneArr2 =[]
+            let phoneArr3 = []
+            if( sortLet === letter ){
+                phoneArr2.push(contact)
+                console.log(contact)
+            } else {
+                phoneArr3.push(contact)
+            } return phoneArr2;
+            
+        })
+
+        console.log(phoneArr)
+    }
+
     render(){
+        const letters = ["-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
         return(
             <div>
                 <h1>Contact</h1>
@@ -58,7 +80,14 @@ class Contact extends React.Component{
                     <button>Submit</button>
                 </form>
                 <div>
-                    {this.state.firstName}
+                    {letters.map(letter => {
+                        return <button key={letter} value={letter} onClick={this.handleLetter}>{letter}</button>
+                    })}
+                    <p>
+                        <span>Fred Flinstone</span><br />
+                        <span>555-235-6589</span><br />
+                        <span>fred@bedrock.com</span>
+                    </p>
                 </div>
             </div>
         )
