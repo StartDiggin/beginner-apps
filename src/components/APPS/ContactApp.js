@@ -7,6 +7,7 @@ import Contacts from './Data/contacts'
 
 class Contact extends React.Component{
     state={
+        edit: false,
         id:"",
         firstName: "",
         lastName: "",
@@ -28,7 +29,7 @@ class Contact extends React.Component{
             [name]: value
         })
     }
-    
+   
     handleSubmit = (e) => {
         e.preventDefault()
         let id = Date.now()
@@ -39,26 +40,15 @@ class Contact extends React.Component{
         this.resetState()
     }
 
-    resetState = () => {
-        this.setState({
-            firstName: "",
-            lastName: "",
-            phoneNum: "",
-            email: ""
-        }
-        )
-    }
-
     handleLetter = (e) => {
         let letter = e.target.value.toLowerCase()
-        // let sortLetter = lastName.slice(0,1).toLowerCase()
-        // let phoneArr = this.state.phoneBook 
         let phoneArr = this.state.contacts.filter(contact => letter === contact.lastName.slice(0,1).toLowerCase() )
         this.setState({
             phoneBook: phoneArr
         })
+        this.removeContactView()
     }
-
+    
     handleView = (id) => {
         let element = document.querySelector(".contactView")
         element.classList.add("activeView")
@@ -66,10 +56,62 @@ class Contact extends React.Component{
         this.setState({
             singleContact:person
         })
-        console.log(person)
+        this.setState({
+            phoneBook: []
+        })
     }
 
-    handleClass = () => {
+    handleEdit = () => {
+        const {id, firstName, lastName, phoneNum, email} = this.state.singleContact
+        this.setState({
+            edit:true,
+            id:id,
+            firstName: firstName,
+            lastName: lastName,
+            phoneNum: phoneNum,
+            email: email
+        })
+        let element = document.querySelector(".contactForm")
+        element.classList.add("editContact")
+    }
+   
+    handleUpdate = (e) => {
+        e.preventDefault()
+        const id = this.state.singleContact.id
+       this.setState(() => {
+           const contact = this.state.contacts.find(contact => contact.id === id)
+           contact.firstName = e.target.firstName.value
+           contact.lastName = e.target.lastName.value
+           contact.phoneNum = e.target.phoneNum.value
+           contact.email = e.target.email.value        
+           return {contact}
+       })
+       // adds background color to the form when editing
+       let element = document.querySelector(".contactForm")
+        element.classList.remove("editContact")
+       this.resetState()
+    }
+
+    handleDelete = () => {
+        const id = this.state.singleContact.id 
+        let contacts = this.state.contacts.filter(contact => contact.id !== id)
+        this.setState({
+            contacts:contacts
+        })
+        this.removeContactView()
+    }
+
+    resetState = () => {
+        this.setState({
+            edit:false,
+            firstName: "",
+            lastName: "",
+            phoneNum: "",
+            email: ""
+        })
+    }
+
+    removeContactView = () => {
         let element = document.querySelector(".contactView")
         element.classList.remove("activeView")
     }
@@ -80,21 +122,36 @@ class Contact extends React.Component{
             <div className="contact">
                 <div className="contactForm">
                     <h1>Contact</h1>
-                    <form onSubmit={this.handleSubmit}>
+                    {this.state.edit ? 
+                    <form onSubmit={this.handleUpdate}>
                         <label>First name: </label>
-                        <input type="text" name="firstName" value={this.state.firstName} placeholder="enter first name" onChange={this.handleChange}/>
+                        <input type="text" name="firstName" value={this.state.firstName} placeholder="enter first name" onChange={this.handleChange} />
                         <br />
                         <label>Last name: </label>
-                        <input type="text" name="lastName" value={this.state.lastName} placeholder="enter last name" onChange={this.handleChange}/>
+                        <input type="text" name="lastName" value={this.state.lastName} placeholder="enter last name" onChange={this.handleChange} />
                         <br />
                         <label>Phone number: </label>
-                        <input type="text" name="phoneNum" value={this.state.phoneNum} placeholder="enter phone number" onChange={this.handleChange}/>
+                        <input type="text" name="phoneNum" value={this.state.phoneNum} placeholder="enter phone number" onChange={this.handleChange} />
                         <br />
                         <label>Email: </label>
-                        <input type="email" name="email" value={this.state.email} placeholder="enter email" onChange={this.handleChange}/>
+                        <input type="email" name="email" value={this.state.email} placeholder="enter email" onChange={this.handleChange} />
                         <br />
-                        <button>Submit</button>
-                    </form>
+                        <button >Update</button>
+                    </form> : <form onSubmit={this.handleSubmit}>
+                        <label>First name: </label>
+                        <input type="text" name="firstName" value={this.state.firstName} placeholder="enter first name" onChange={this.handleChange} />
+                        <br />
+                        <label>Last name: </label>
+                        <input type="text" name="lastName" value={this.state.lastName} placeholder="enter last name" onChange={this.handleChange} />
+                        <br />
+                        <label>Phone number: </label>
+                        <input type="text" name="phoneNum" value={this.state.phoneNum} placeholder="enter phone number" onChange={this.handleChange} />
+                        <br />
+                        <label>Email: </label>
+                        <input type="email" name="email" value={this.state.email} placeholder="enter email" onChange={this.handleChange} />
+                        <br />
+                        <button >Submit</button>
+                    </form> }
                 </div>
                 <div className="contactDisplay">
                     {letters.map(letter => {
@@ -102,17 +159,17 @@ class Contact extends React.Component{
                     })}
                     {this.state.phoneBook.map(contact => <p key={contact.id}>
                         <span>{contact.firstName} {contact.lastName}  </span>
-                        {/* <span>{contact.phoneNum} </span><br />
-                        <span>{contact.email}</span> */}
                         <button onClick={() => this.handleView(contact.id)}>view</button>
                     </p>)}
                 </div>
-                <div className="contactView" onClick={this.handleClass}>
+                <div className="contactView" >
                         <h1>Contact</h1>
                         <span>{this.state.singleContact.firstName} {this.state.singleContact.lastName}</span><br />
                         <span>{this.state.singleContact.phoneNum} </span><br />
                         <span>{this.state.singleContact.email}</span><br />
-                        <button className="contactViewClose">x</button>
+                        <button className="contactViewClose" onClick={this.removeContactView}>x</button>
+                        <button className="contactViewBtn" onClick={this.handleEdit}>Edit</button>
+                        <button className="contactViewBtn" onClick={this.handleDelete}>Delete</button>
                 </div>
             </div>
         )

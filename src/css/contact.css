@@ -35,3 +35,13 @@
   background-color: #fff;
   cursor: pointer;
 }
+
+.contactViewBtn {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.editContact {
+  background-color: rgb(195, 146, 146);
+}
