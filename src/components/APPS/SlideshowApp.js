@@ -29,7 +29,24 @@ class SlideShowApp extends React.Component {
         index < 1 ? this.setState({slideIndex:len}) : index > len ? this.setState({slideIndex: 1}) : this.setState({slideIndex:index})
 
         this.showSlides()
+        this.handleFill()
         
+    }
+
+    // fill indicator color 
+    handleFill = () => {
+        let index = this.state.slideIndex -1
+        let lines = document.querySelectorAll(".indicator")
+
+        for(let i=0;i<lines.length;i++){
+            lines[i].classList.remove('fill')
+        }
+
+        for(let i=0;i<lines.length;i++){
+            if(i === index){
+                lines[i].classList.add('fill')
+            }
+        }
     }
 
     render(){
@@ -52,6 +69,12 @@ class SlideShowApp extends React.Component {
 
                     <img src={navPrev} onClick={() => this.changeSlide(-1)} className="prev" alt="prev"/>
                     <img src={navNext} onClick={() => this.changeSlide(1)} className="next" alt="next"/>
+                    
+                </div>
+                <div className="lines">
+                    <span className="indicator fill"></span>
+                    <span className="indicator"></span>
+                    <span className="indicator"></span>
                 </div>
             </div>
         )
