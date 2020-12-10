@@ -8,14 +8,8 @@ import navNext from './Data/nav_next.svg'
 
 class SlideShowApp extends React.Component {
     state={
-        slideIndex: 2,
-        imgs:[]
+        slideIndex: 2
     }
-
-
-    // componentDidMount() {
-    //     this.showSlides(1)
-    // }
 
     showSlides = () => {
         let slides = document.querySelectorAll('.myslides')
@@ -24,12 +18,7 @@ class SlideShowApp extends React.Component {
         }
         let num = this.state.slideIndex
         slides[num-1].classList.add('active')
-
     }   
-
-    handleClick = () => {
-        console.log('next photo')
-    }
 
     changeSlide = (n) => {
         let slides = document.querySelectorAll('.myslides')
@@ -38,16 +27,10 @@ class SlideShowApp extends React.Component {
         index += n
 
         index < 1 ? this.setState({slideIndex:len}) : index > len ? this.setState({slideIndex: 1}) : this.setState({slideIndex:index})
-        
+
         this.showSlides()
-        console.log(this.state.slideIndex)
+        
     }
-
-
-
-
-
-
 
     render(){
         return(
@@ -55,15 +38,15 @@ class SlideShowApp extends React.Component {
                 <h1>Slide Show App</h1>
                 <div className="imgContainer">
                     {/* image 1 */}
-                    <div className="myslides active">
+                    <div className="myslides fade active">
                         <img src={img1} alt="img"/>
                     </div>
                     {/* image 2  */}
-                    <div className="myslides">
+                    <div className="myslides fade">
                         <img src={img2} alt="img"/>
                     </div>
                     {/* image 3 */}
-                    <div className="myslides">
+                    <div className="myslides fade">
                         <img src={img3} alt="img"/>
                     </div>
 

@@ -12,6 +12,21 @@
   width: 600px;
 }
 
+/* slide animation  */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* class added to myslides to display img  */
 .active {
   display: block;
