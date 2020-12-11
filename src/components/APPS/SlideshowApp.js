@@ -8,11 +8,13 @@ import navNext from './Data/nav_next.svg'
 
 class SlideShowApp extends React.Component {
     state={
-        slideIndex: 2
+        slideIndex: 2,
+        lines: 0
     }
 
     showSlides = () => {
         let slides = document.querySelectorAll('.myslides')
+        this.setState({lines: slides.length})
         for(let i=0;i<slides.length;i++){
             slides[i].classList.remove('active')
         }
