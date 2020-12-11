@@ -1,13 +1,17 @@
 import React, {useState, useEffect } from 'react'
 
+import bells from './Data/bells.wav'
+import clap from './Data/clap.wav'
+
 
 
 
 const TimerApp = () => {
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(10)
     const [mins, setMins] = useState(0)
     const [minutes, setMinutes] = useState(0)
     const [breaks, setBreaks] = useState(15)
+    const [ audio ] = useState(new Audio(bells))
     
     
 
@@ -21,11 +25,7 @@ const TimerApp = () => {
             counter === 0 && mins > 0 && setTimeout(() => setMins(mins -1), setCounter(59), 1000);
     },[counter, mins])
 
-    useEffect(() => {
-        
-    },[minutes])
-
-
+  
 
    
 
@@ -38,11 +38,14 @@ const TimerApp = () => {
             <div className="timer">
                 <div>
                     <span>Break Time:</span>
-                    <h3>{breaks} minutes</h3>    
+                    <h3>{breaks} minutes</h3>   
+                    <button onClick={() => setBreaks(breaks + 5)}>add 5 minutes</button>
+                    <button onClick={() => setBreaks(breaks - 5)}>minus 5 minutes</button> 
                 </div>
                 <div>
                     <span>Timer:</span>
-                    <h3>{mins}:{counter}</h3>
+                    {counter < 10 ? <h3>{mins}:0{counter}</h3>:<h3>{mins}:{counter}</h3>}
+               
                     <button onClick={() => {setMins(minutes); setCounter(59)}}>Start Timer</button>
                 </div>
                 <div> 
@@ -51,11 +54,7 @@ const TimerApp = () => {
                     <button onClick={() => setMinutes(minutes + 5)}>add 5 minutes</button>
                     <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button>
                 </div>
-                <div className="btns">
-                </div>
-                
-                
-               
+                <button onClick={() => audio.play(audio)}>audio</button>
             </div>
         </div>
     )
