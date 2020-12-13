@@ -69,6 +69,7 @@ const TimerApp = () => {
                     <h3>{minutes}</h3>
                     <button onClick={() => setMinutes(minutes + 5)}>add 5 minutes</button>
                     <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button>
+                    <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button>
                 </div>
                 
             </div>
