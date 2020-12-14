@@ -6,10 +6,3 @@
 .btns {
   grid-column: 2/3;
 }
-
-.useBreakBtn {
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(0.25turn, #000 50%, #fff 50%);
-  background-color: red;
-}
