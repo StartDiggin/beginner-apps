@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react'
 
 
 import bells from './Data/bells.wav'
-// import clap from './Data/clap.wav'
+import clap from './Data/clap.wav'
 
 
 
@@ -18,9 +18,9 @@ const TimerApp = () => {
     // break variables 
     const [breaks, setBreaks] = useState(0)
     const [breakMins, setBreakMins] =useState(0)
-    // const [breakCounter, setBreakCounter] = useState(0)
     // audio variables 
     const [ audio ] = useState(new Audio(bells))
+    const [ audio2 ] = useState(new Audio(clap))
     const [ playing, setPlaying ] = useState(false)
 
     
@@ -51,7 +51,11 @@ const TimerApp = () => {
         }
     })
 
-    
+    useEffect(() => {
+        if(playing === true && mins === 0 && counter === 0 ){
+            audio2.play()
+        }
+    })
  
 
 
@@ -63,7 +67,9 @@ const TimerApp = () => {
                 <div>
                     <span>Break Time:</span><br />
                     <h3>{breaks} minutes</h3>   
-                    <button onClick={() => setBreaks(breaks + 1)}>add 5 minutes</button>
+
+                      {/* add 5 minutes button doesn't show unless there is 5 minutes are more added first to session  */}
+                    {minutes > 4 ? <button onClick={() => setBreaks(breaks + 5)}>add 5 minutes</button> : null}
 
                     {/* minus 5 minutes button doesn't show unless there is 5 minutes are more added first  */}
                     {breaks > 4 ? <button onClick={() => setBreaks(breaks - 5)}>minus 5 minutes</button> : null}
