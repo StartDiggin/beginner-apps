@@ -4,15 +4,30 @@
 @import "./css/slideShow.css";
 @import "./css/timer.css";
 
+/* fonts  */
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Shadows Into Light', cursive; */
+/* $bodyFont: "Roboto", sans-serif;
+$headerFont: "Shadows Into Light", cursive; */
+
 .App {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 3px;
 }
 
 /* Header section  */
 .header {
   grid-column: 1/-1;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+#header {
+  letter-spacing: 10px;
 }
 
 .main {
@@ -38,5 +53,6 @@
 
 /* sections */
 .section {
-  background-color: grey;
+  background: linear-gradient(#fff, #000);
+  height: 100vh;
 }

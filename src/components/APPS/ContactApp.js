@@ -1,5 +1,7 @@
 import React from 'react'
 import Contacts from './Data/contacts'
+import ContactForm from './subComponents/contactForm'
+import ContactUpdateForm from './subComponents/contactFormUpdate'
 
 
 
@@ -118,58 +120,34 @@ class Contact extends React.Component{
 
     render(){
         const letters = ["-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+        let { firstName, lastName, phoneNum, email }   = this.state
         return(
-            <div className="contact">
-                <div className="contactForm">
-                    <h1>Contact</h1>
-                    {this.state.edit ? 
-                    <form onSubmit={this.handleUpdate}>
-                        <label>First name: </label>
-                        <input type="text" name="firstName" value={this.state.firstName} placeholder="enter first name" onChange={this.handleChange} />
-                        <br />
-                        <label>Last name: </label>
-                        <input type="text" name="lastName" value={this.state.lastName} placeholder="enter last name" onChange={this.handleChange} />
-                        <br />
-                        <label>Phone number: </label>
-                        <input type="text" name="phoneNum" value={this.state.phoneNum} placeholder="enter phone number" onChange={this.handleChange} />
-                        <br />
-                        <label>Email: </label>
-                        <input type="email" name="email" value={this.state.email} placeholder="enter email" onChange={this.handleChange} />
-                        <br />
-                        <button >Update</button>
-                    </form> : <form onSubmit={this.handleSubmit}>
-                        <label>First name: </label>
-                        <input type="text" name="firstName" value={this.state.firstName} placeholder="enter first name" onChange={this.handleChange} />
-                        <br />
-                        <label>Last name: </label>
-                        <input type="text" name="lastName" value={this.state.lastName} placeholder="enter last name" onChange={this.handleChange} />
-                        <br />
-                        <label>Phone number: </label>
-                        <input type="text" name="phoneNum" value={this.state.phoneNum} placeholder="enter phone number" onChange={this.handleChange} />
-                        <br />
-                        <label>Email: </label>
-                        <input type="email" name="email" value={this.state.email} placeholder="enter email" onChange={this.handleChange} />
-                        <br />
-                        <button >Submit</button>
-                    </form> }
-                </div>
-                <div className="contactDisplay">
-                    {letters.map(letter => {
-                        return <button key={letter} value={letter} onClick={this.handleLetter}>{letter}</button>
-                    })}
-                    {this.state.phoneBook.map(contact => <p key={contact.id}>
-                        <span>{contact.firstName} {contact.lastName}  </span>
-                        <button onClick={() => this.handleView(contact.id)}>view</button>
-                    </p>)}
-                </div>
-                <div className="contactView" >
+            <div className="section">
+                <div className="contact">
+                    <div className="contactForm">
                         <h1>Contact</h1>
-                        <span>{this.state.singleContact.firstName} {this.state.singleContact.lastName}</span><br />
-                        <span>{this.state.singleContact.phoneNum} </span><br />
-                        <span>{this.state.singleContact.email}</span><br />
-                        <button className="contactViewClose" onClick={this.removeContactView}>x</button>
-                        <button className="contactViewBtn" onClick={this.handleEdit}>Edit</button>
-                        <button className="contactViewBtn" onClick={this.handleDelete}>Delete</button>
+                        {this.state.edit ? 
+                        <ContactUpdateForm firstName={firstName} lastName={lastName} phoneNum={phoneNum} email={email} handleChange={this.handleChange} handleUpdate={this.handleUpdate} /> : 
+                        <ContactForm firstName={firstName} lastName={lastName} phoneNum={phoneNum} email={email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} 
+                    </div>
+                    <div className="contactDisplay">
+                        {letters.map(letter => {
+                            return <button key={letter} value={letter} onClick={this.handleLetter}>{letter}</button>
+                        })}
+                        {this.state.phoneBook.map(contact => <p key={contact.id}>
+                            <span>{contact.firstName} {contact.lastName}  </span>
+                            <button onClick={() => this.handleView(contact.id)}>view</button>
+                        </p>)}
+                    </div>
+                    <div className="contactView" >
+                           
+                            <span>{this.state.singleContact.firstName} {this.state.singleContact.lastName}</span><br />
+                            <span>{this.state.singleContact.phoneNum} </span><br />
+                            <span>{this.state.singleContact.email}</span><br />
+                            <button className="contactViewClose" onClick={this.removeContactView}>x</button>
+                            <button className="contactViewBtn" onClick={this.handleEdit}>Edit</button>
+                            <button className="contactViewBtn" onClick={this.handleDelete}>Delete</button>
+                    </div>
                 </div>
             </div>
         )

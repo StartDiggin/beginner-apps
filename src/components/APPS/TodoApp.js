@@ -93,7 +93,7 @@ class TodoApp extends React.Component {
         const todoDoneList = this.state.todoData.map(item => item.completed ? <TodoItem key={item.id} item={item} handleCheckbox={this.handleCheckbox} onChange={this.onInputChange}/> : null)
         
         return(
-            <div className="main">
+            <div className="section">
                 <h1 >Todos on my list of stuff to get done!!!</h1>
                 {/* Toggle betweet add and update todo  */}
                 <div>

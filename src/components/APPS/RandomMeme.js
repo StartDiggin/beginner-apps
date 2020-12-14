@@ -75,7 +75,6 @@ class RandomMeme extends React.Component{
                     <h3 className="topText">{this.state.topText}</h3>
                     <h3 className="btmText">{this.state.btmText}</h3>
                 </div>
-               
             </div>
         )
 
@@ -83,6 +82,5 @@ class RandomMeme extends React.Component{
 
 
 }
-
 
 export default RandomMeme;

@@ -27,7 +27,7 @@ class Header extends Component {
                 <Route path="/randommeme" component={randommeme}/>
                 <Route path="/slidehow" component={slidehow}/>
                 <Route path="/timer" component={timer}/>
-                <Route path="/todo" component={todo}/>
+                <Route path="/todos" component={todo}/>
                 <Route component={Error}/>
                 </Switch>
             </div> 

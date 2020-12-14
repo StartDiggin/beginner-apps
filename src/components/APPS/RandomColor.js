@@ -68,7 +68,7 @@ class RandomColor extends React.Component {
             color: this.state.hslaColor
         }
         return(
-            <div>
+            <div className="section">
                 {/* hex color  */}
                 <h1 style={styles}>Random Hex Color</h1>
                 <h4>Hex color: {this.state.hexColor}</h4>

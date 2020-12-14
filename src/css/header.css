@@ -5,3 +5,7 @@
 .header__body {
   border: 1px solid orange;
 }
+
+.nav__item {
+  color: rgb(37, 37, 37);
+}
