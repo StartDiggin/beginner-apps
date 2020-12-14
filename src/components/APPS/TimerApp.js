@@ -44,7 +44,7 @@ const TimerApp = () => {
         }
     },[start])
     
-    // responsible for playing sound when timer is finished 
+    // responsible for playing sound when timer and break is finished 
     useEffect(() => {
         if(playing === true && breakMins === 0 && counter === 0 ){
             audio.play()
