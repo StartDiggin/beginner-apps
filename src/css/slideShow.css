@@ -28,7 +28,7 @@
 }
 
 /* class added to myslides to display img  */
-.active {
+.activeImg {
   display: block;
   margin-bottom: 25px;
 }

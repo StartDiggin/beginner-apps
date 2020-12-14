@@ -16,10 +16,10 @@ class SlideShowApp extends React.Component {
         let slides = document.querySelectorAll('.myslides')
         this.setState({lines: slides.length})
         for(let i=0;i<slides.length;i++){
-            slides[i].classList.remove('active')
+            slides[i].classList.remove('activeImg')
         }
         let num = this.state.slideIndex
-        slides[num-1].classList.add('active')
+        slides[num-1].classList.add('activeImg')
     }   
 
     changeSlide = (n) => {
@@ -57,7 +57,7 @@ class SlideShowApp extends React.Component {
                 <h1>Slide Show App</h1>
                 <div className="imgContainer">
                     {/* image 1 */}
-                    <div className="myslides fade active">
+                    <div className="myslides fade activeImg">
                         <img src={img1} alt="img"/>
                     </div>
                     {/* image 2  */}

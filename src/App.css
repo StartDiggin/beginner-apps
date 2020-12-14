@@ -18,37 +18,9 @@ $headerFont: "Shadows Into Light", cursive; */
   letter-spacing: 3px;
 }
 
-/* Header section  */
-.header {
-  grid-column: 1/-1;
-  font-family: "Shadows Into Light", cursive;
-  font-size: 24px;
-  letter-spacing: 3px;
-}
-
-#header {
-  letter-spacing: 10px;
-}
-
 .main {
   grid-column: 1/-1;
-  border: 1px solid black;
-}
-
-/* Navigation section  */
-.nav {
-  grid-column: 1/-1;
-  border: 1px solid orange;
-}
-
-.nav__links {
-  display: flex;
-  list-style-type: none;
-  justify-content: space-evenly;
-}
-
-.nav__item {
-  text-decoration: none;
+  /* border: 1px solid black; */
 }
 
 /* sections */
