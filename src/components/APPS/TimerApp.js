@@ -23,6 +23,7 @@ const TimerApp = () => {
     const [ audio2 ] = useState(new Audio(clap))
     const [ playing, setPlaying ] = useState(false)
 
+   
     
     
     // responsible for countdown timer 
@@ -82,7 +83,7 @@ const TimerApp = () => {
                         setBreakMins(breaks-1);  
                         setCounter(59); 
                         setStart(true)}}
-                    >Start Timer</button>}<br />
+                    >Start Timer</button>} <button onClick={() => {setCounter(0); setMins(0); setMinutes(0); setBreaks(0);setBreakMins(0); setPlaying(false)}}>Reset Timer</button><br />
 
                     <span>Break Time Left:</span><br />
                     {counter < 10 && breakMins > -1 ? <h3>{breakMins}:0{counter}</h3>: breakMins > -1 ? <h3>{breakMins}:{counter}</h3>:null}
