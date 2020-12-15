@@ -69,18 +69,21 @@ class RandomColor extends React.Component {
         }
         return(
             <div className="section">
-                {/* hex color  */}
-                <h1 style={styles}>Random Hex Color</h1>
-                <h4>Hex color: {this.state.hexColor}</h4>
-                <button onClick={this.hexColor}>Hex color</button>
-                {/* rgba color  */}
-                <h1 style={styles1}>Random RGBA Color</h1>
-                <h4>RGBA color: {this.state.rgbaColor}</h4>
-                <button onClick={this.rgbaColor}>RGBA color</button>
-                {/* hsla color  */}
-                <h1 style={styles2}>Random HSLA Color</h1>
-                <h4>HSLA color: {this.state.hslaColor}</h4>
-                <button onClick={this.hslaColor}>HSLA color</button>
+                <div className="randomColor">
+                    <h1 className="pageHeading">Random Colors</h1>
+                    {/* hex color  */}
+                    <h1 style={styles}>Random Hex Color</h1>
+                    <h4>Hex color: {this.state.hexColor}</h4>
+                    <button onClick={this.hexColor}>Hex color</button>
+                    {/* rgba color  */}
+                    <h1 style={styles1}>Random RGBA Color</h1>
+                    <h4>RGBA color: {this.state.rgbaColor}</h4>
+                    <button onClick={this.rgbaColor}>RGBA color</button>
+                    {/* hsla color  */}
+                    <h1 style={styles2}>Random HSLA Color</h1>
+                    <h4>HSLA color: {this.state.hslaColor}</h4>
+                    <button onClick={this.hslaColor}>HSLA color</button>
+                </div>
             </div>
         )
 

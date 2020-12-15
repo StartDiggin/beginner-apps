@@ -4,12 +4,6 @@
 @import "./css/slideShow.css";
 @import "./css/timer.css";
 
-/* fonts  */
-/* font-family: 'Roboto', sans-serif;
-font-family: 'Shadows Into Light', cursive; */
-/* $bodyFont: "Roboto", sans-serif;
-$headerFont: "Shadows Into Light", cursive; */
-
 .App {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,11 +14,23 @@ $headerFont: "Shadows Into Light", cursive; */
 
 .main {
   grid-column: 1/-1;
-  /* border: 1px solid black; */
 }
 
 /* sections */
 .section {
   background: linear-gradient(#fff, #000);
   height: 100vh;
+  margin-top: 50px;
+  position: relative;
+}
+
+.pageHeading:before {
+  content: "";
+  display: inline-block;
+  width: 30%;
+  position: absolute;
+  top: 35px;
+  left: 35%;
+  height: 2px;
+  background-color: #000;
 }

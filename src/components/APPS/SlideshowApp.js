@@ -54,7 +54,8 @@ class SlideShowApp extends React.Component {
     render(){
         return(
             <div className="section">
-                <h1>Slide Show App</h1>
+               <div className="slideShow">
+                   <h1 className="pageHeading">Slide Show</h1>
                 <div className="imgContainer">
                     {/* image 1 */}
                     <div className="myslides fade activeImg">
@@ -78,6 +79,7 @@ class SlideShowApp extends React.Component {
                     <span className="indicator"></span>
                     <span className="indicator"></span>
                 </div>
+               </div>
             </div>
         )
 

@@ -51,29 +51,30 @@ class RandomMeme extends React.Component{
     render(){
         return(
             <div className="section">
-                <h1>Random memes App</h1>
-                {/* form for inputing text  */}
-                <form onSubmit={this.handleSubmit}>
-                    <label>Top text:</label>
-                    <input 
-                        type="text"
-                        name="topText"
-                        // value={this.state.topText}
-                        onChange={this.handleChange}
-                    /> <br />
-                    <label>Bottom text:</label>
-                    <input 
-                        type="text"
-                        name="btmText"
-                        onChange={this.handleChange}
-                    />
-                    <button>Meme</button>
-                </form>
-                {/* display div  */}
-                <div>
-                    <img className="randImg" src={this.state.randImg} alt="meme img"/>
-                    <h3 className="topText">{this.state.topText}</h3>
-                    <h3 className="btmText">{this.state.btmText}</h3>
+                <div className="randomMemes">
+                    <h1 className="pageHeading">Random Memes</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Top text:</label>
+                        <input 
+                            type="text"
+                            name="topText"
+                            // value={this.state.topText}
+                            onChange={this.handleChange}
+                        /> <br />
+                        <label>Bottom text:</label>
+                        <input 
+                            type="text"
+                            name="btmText"
+                            onChange={this.handleChange}
+                        />
+                        <button>Meme</button>
+                    </form>
+                    {/* display div  */}
+                    <div>
+                        <img className="randImg" src={this.state.randImg} alt="meme img"/>
+                        <h3 className="topText">{this.state.topText}</h3>
+                        <h3 className="btmText">{this.state.btmText}</h3>
+                    </div>
                 </div>
             </div>
         )

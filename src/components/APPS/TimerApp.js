@@ -63,7 +63,7 @@ const TimerApp = () => {
    
     return(
         <div className="section">
-            <h1>Timer App</h1>
+            <h1 className="pageHeading">Timer</h1>
             <div className="timer">
                 <div>
                     <span>Break Time:</span><br />

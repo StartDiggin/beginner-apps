@@ -119,13 +119,13 @@ class Contact extends React.Component{
     }
 
     render(){
-        const letters = ["-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+        const letters = ["-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","-"]
         let { firstName, lastName, phoneNum, email }   = this.state
         return(
             <div className="section">
                 <div className="contact">
+                    <h1 className="pageHeading h1">Contact</h1>
                     <div className="contactForm">
-                        <h1>Contact</h1>
                         {this.state.edit ? 
                         <ContactUpdateForm firstName={firstName} lastName={lastName} phoneNum={phoneNum} email={email} handleChange={this.handleChange} handleUpdate={this.handleUpdate} /> : 
                         <ContactForm firstName={firstName} lastName={lastName} phoneNum={phoneNum} email={email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} 

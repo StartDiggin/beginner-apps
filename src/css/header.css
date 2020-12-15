@@ -1,7 +1,8 @@
 /* Header section  */
 .header {
   grid-column: 1/-1;
-  font-family: "Shadows Into Light", cursive;
+  /* font-family: "Shadows Into Light", cursive; */
+  font-family: "Permanent Marker", cursive;
   font-size: 24px;
   letter-spacing: 3px;
   background: linear-gradient(#000, #fff);
@@ -23,12 +24,13 @@
 }
 
 /* single a links  */
+
 .nav__item {
   color: rgb(37, 37, 37);
   text-decoration: none;
-  /* display: inline-block; */
-  /* padding: 15px 20px; */
   position: relative;
+  filter: drop-shadow(3px 2px 3px);
+  border-radius: 50%;
 }
 
 .nav__item:before {
@@ -36,21 +38,16 @@
   position: absolute;
   display: inline-block;
   top: 25px;
-  left: 0;
+  left: 35px;
   background-color: #000;
   width: 0%;
   visibility: hidden;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav__item:hover:before {
   visibility: visible;
   width: 100%;
   height: 2px;
-}
-
-.nav__item:hover:after {
-  /* visibility: hidden; */
-  width: 50%;
-  height: 2px;
+  left: 0;
 }

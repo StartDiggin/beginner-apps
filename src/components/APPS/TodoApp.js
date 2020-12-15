@@ -94,7 +94,7 @@ class TodoApp extends React.Component {
         
         return(
             <div className="section">
-                <h1 >Todos on my list of stuff to get done!!!</h1>
+                <h1 className="pageHeading">Stuff Todo!!!</h1>
                 {/* Toggle betweet add and update todo  */}
                 <div>
                     {this.state.edit ?  <UpdateTodo onSubmit={this.handleUpdate} onChange={this.handleChange} todo={this.state.todo} /> : <AddTodo onSubmit={this.handleSubmit} onChange={this.handleChange} todo={this.state.todo} /> }
