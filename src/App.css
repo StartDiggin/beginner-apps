@@ -3,6 +3,7 @@
 @import "./css/contact.css";
 @import "./css/slideShow.css";
 @import "./css/timer.css";
+@import "./css/todo.css";
 
 .App {
   display: grid;

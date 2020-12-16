@@ -1,14 +1,14 @@
 import React from 'react'
-import '../../../css/todo.css'
 	
-function TodoItem(props){
-   
+	
+function TodoItemComplete(props){
+    // style to add if todo is completed
     const completedStyle = {
         fontStyle: 'italic',
-        color: '#cdcdcd',
-        textDecoration: 'line-through'
+        color: '#999999',
+        textDecoration: 'line-through',
     }
- 
+   
     return(
         <div className="todoItem">
             <input 
@@ -17,10 +17,10 @@ function TodoItem(props){
                 type="checkbox"
                 checked={props.item.completed}
                 onChange={() => {props.handleCheckbox(props.item.id)}} 
-            /><label style={props.item.completed ? completedStyle : null}>{props.item.value}<button className="btnTodo" onClick={() => props.handleEdit(props.item.id)} >Edit</button><button className="btnTodo" onClick={() => props.handleDelete(props.item.id)}>Delete</button> 
-            
-            </label>
+                className="todoComplete"
+            />
+            <label className="todoLabel" style={props.item.completed ? completedStyle : null}>{props.item.value}</label>
         </div>
     )
 }
-export default TodoItem;
+export default TodoItemComplete;

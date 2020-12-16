@@ -70,10 +70,10 @@ const TimerApp = () => {
                     <h3>{breaks} minutes</h3>   
 
                       {/* add 5 minutes button doesn't show unless there is 5 minutes are more added first to session  */}
-                    {minutes > 4 ? <button onClick={() => setBreaks(breaks + 5)}>add 5 minutes</button> : null}
+                    {minutes > 4 && start === false ? <button onClick={() => setBreaks(breaks + 5)}>add 5 minutes</button> : null}
 
                     {/* minus 5 minutes button doesn't show unless there is 5 minutes are more added first  */}
-                    {breaks > 4 ? <button onClick={() => setBreaks(breaks - 5)}>minus 5 minutes</button> : null}
+                    {breaks > 4 && start === false ? <button onClick={() => setBreaks(breaks - 5)}>minus 5 minutes</button> : null}
                      
                 </div>
                 <div>
@@ -83,7 +83,7 @@ const TimerApp = () => {
                         setBreakMins(breaks-1);  
                         setCounter(59); 
                         setStart(true)}}
-                    >Start Timer</button>} <button onClick={() => {setCounter(0); setMins(0); setMinutes(0); setBreaks(0);setBreakMins(0); setPlaying(false)}}>Reset Timer</button><br />
+                    >Start Timer</button>} <button onClick={() => {setCounter(0); setMins(0); setMinutes(0); setBreaks(0);setBreakMins(0); setPlaying(false); setStart(false)}}>Reset Timer</button><br />
 
                     <span>Break Time Left:</span><br />
                     {counter < 10 && breakMins > -1 ? <h3>{breakMins}:0{counter}</h3>: breakMins > -1 ? <h3>{breakMins}:{counter}</h3>:null}
@@ -93,8 +93,8 @@ const TimerApp = () => {
                 <div> 
                     <span>Session Time:</span>
                     <h3>{minutes} minutes</h3>
-                    <button onClick={() => setMinutes(minutes + 5) }>add 5 minutes</button>
-                    {minutes > 4 ? <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button> : null}
+                    {start === false ? <button onClick={() => setMinutes(minutes + 5) }>add 5 minutes</button> : null}
+                    {minutes > 4 && start === false ? <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button> : null}
                 </div>
                 <div>
                 </div>
