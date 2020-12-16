@@ -78,25 +78,38 @@ const TimerApp = () => {
                 </div>
                 <div>
                     <span>Timer:</span>
-                    {counter < 10 ? <h3>{mins}:0{counter}</h3>:<h3>{mins}:{counter}</h3>}
-                    {minutes < 5 ? null : <button onClick={() => {setMins(minutes-1); 
+                    {counter < 10 ? <h3 className="timerBtn">{mins}:0{counter}</h3>:<h3 className="timerBtn">{mins}:{counter}</h3>}
+                    {minutes < 5 ? null: <button className="timerBtn" onClick={() => {setMins(minutes-1); 
                         setBreakMins(breaks-1);  
                         setCounter(59); 
                         setStart(true)}}
-                    >Start Timer</button>} <button onClick={() => {setCounter(0); setMins(0); setMinutes(0); setBreaks(0);setBreakMins(0); setPlaying(false); setStart(false)}}>Reset Timer</button><br />
-
+                    >Start Timer</button>}<br />
+                    
                     <span>Break Time Left:</span><br />
                     {counter < 10 && breakMins > -1 ? <h3>{breakMins}:0{counter}</h3>: breakMins > -1 ? <h3>{breakMins}:{counter}</h3>:null}
                         
+                    <div className="resetBtn">
+                        {/* button to reset timer  */}
+                        <button onClick={() => {setCounter(0); setMins(0); setMinutes(0); setBreaks(0);setBreakMins(0); setPlaying(false); setStart(false)}}>Reset Timer</button>
+                    </div>
                     
                 </div>
                 <div> 
                     <span>Session Time:</span>
                     <h3>{minutes} minutes</h3>
                     {start === false ? <button onClick={() => setMinutes(minutes + 5) }>add 5 minutes</button> : null}
-                    {minutes > 4 && start === false ? <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button> : null}
+                    {minutes > 4 && start === false ? <button onClick={() => setMinutes(minutes - 5)}>minus 5 minutes</button> : null}<br />
+                    
                 </div>
-                <div>
+
+                <div className="description">
+                    <p>
+                        This app lets you set a session time and a break time. You can add and subtract minutes to the session time
+                        and to the break time. A sound plays when the break timer ends, if set, and a sound plays when the session timer 
+                        ends as well. This is my first attempt at using React Hooks for an entire app. Seems to be working okay, but
+                        I still need a lot of work on using the Hooks. I like the simplicity and power of the Hooks but still have to get used to using 
+                        them. Thank you for stopping in!
+                    </p>
                 </div>
                 
             </div>

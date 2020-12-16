@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
+
 
 
 const Home = () => {
-    const [count, setCount] = useState(0)
-
     
-
-
     return <div className="section">
         <div className="home">
-            <h1 className="pageHeading">Home</h1>
-            <h2>You Clicked {count} times</h2>
-            <button onClick={() => setCount(count + 1)} >Add 1</button>
-            <button onClick={() => setCount(count - 1)} >Minus 1</button>
+            <h1 className="pageHeading">Hello, welcome to my project page!</h1>
+            <p>
+                My name is Johnny, I am working on learning another language and I figured
+                React was a good one to learn. Here are a few of my starter projects. Take a
+                look and I hope this helps anyone who is trying to learn React and is out of 
+                ideas of what to build. Thank you for stopping in, have a good one!!!
+               
+            </p>
+           
         </div>
     </div>
 }

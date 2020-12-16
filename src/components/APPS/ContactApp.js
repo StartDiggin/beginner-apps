@@ -36,15 +36,20 @@ class Contact extends React.Component{
         e.preventDefault()
         let id = Date.now()
         let personArr = this.state.contacts;
-        let {firstName, lastName, phoneNum, email} = this.state
-        let person = {id:id, firstName:firstName, lastName:lastName, phoneNum:phoneNum, email:email}
+        let phn = this.state.phoneNum
+        let areaCode = phn.slice(0,3)
+        let prefix = phn.slice(3,6)
+        let suffix = phn.slice(6)
+        let phoneNumber = `${areaCode}-${prefix}-${suffix}`
+        let {firstName, lastName, email} = this.state
+        let person = {id:id, firstName:firstName, lastName:lastName, phoneNum:phoneNumber, email:email}
         personArr.push(person)
         this.resetState()
     }
 
     handleLetter = (e) => {
         let letter = e.target.value.toLowerCase()
-        let phoneArr = this.state.contacts.filter(contact => letter === contact.lastName.slice(0,1).toLowerCase() )
+        let phoneArr = this.state.contacts.filter(contact => letter === contact.lastName.slice(0,1).toLowerCase())
         this.setState({
             phoneBook: phoneArr
         })
@@ -119,7 +124,7 @@ class Contact extends React.Component{
     }
 
     render(){
-        const letters = ["-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","-"]
+        const letters = ["<","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",">"]
         let { firstName, lastName, phoneNum, email }   = this.state
         return(
             <div className="section">
@@ -131,6 +136,7 @@ class Contact extends React.Component{
                         <ContactForm firstName={firstName} lastName={lastName} phoneNum={phoneNum} email={email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} 
                     </div>
                     <div className="contactDisplay">
+                        {/* Displays the alphabet  */}
                         {letters.map(letter => {
                             return <button key={letter} value={letter} onClick={this.handleLetter}>{letter}</button>
                         })}
@@ -139,14 +145,13 @@ class Contact extends React.Component{
                             <button onClick={() => this.handleView(contact.id)}>view</button>
                         </p>)}
                     </div>
-                    <div className="contactView" >
-                           
-                            <span>{this.state.singleContact.firstName} {this.state.singleContact.lastName}</span><br />
-                            <span>{this.state.singleContact.phoneNum} </span><br />
-                            <span>{this.state.singleContact.email}</span><br />
-                            <button className="contactViewClose" onClick={this.removeContactView}>x</button>
-                            <button className="contactViewBtn" onClick={this.handleEdit}>Edit</button>
-                            <button className="contactViewBtn" onClick={this.handleDelete}>Delete</button>
+                    <div className="contactView">
+                        <span>{this.state.singleContact.firstName} {this.state.singleContact.lastName}</span><br />
+                        <span>{this.state.singleContact.phoneNum} </span><br />
+                        <span>{this.state.singleContact.email}</span><br />
+                        <button className="contactViewClose" onClick={this.removeContactView}>x</button>
+                        <button className="contactViewBtn" onClick={this.handleEdit}>Edit</button>
+                        <button className="contactViewBtn" onClick={this.handleDelete}>Delete</button>
                     </div>
                 </div>
             </div>

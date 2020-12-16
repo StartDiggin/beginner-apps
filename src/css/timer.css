@@ -6,3 +6,11 @@
 .btns {
   grid-column: 2/3;
 }
+
+.breakTimerLeft {
+  padding-top: 10px;
+}
+
+.timerBtn {
+  margin-bottom: 20px;
+}

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import contact from './APPS/ContactApp'
 import randomcolor from './APPS/RandomColor'
 import randommeme from './APPS/RandomMeme'
-import slidehow from './APPS/SlideshowApp'
+import slideshow from './APPS/SlideshowApp'
 import timer from './APPS/TimerApp'
 import todo from './APPS/TodoApp'
 
@@ -25,7 +25,7 @@ class Header extends Component {
                 <Route path="/contact" component={contact}/>
                 <Route path="/randomcolor" component={randomcolor}/>
                 <Route path="/randommeme" component={randommeme}/>
-                <Route path="/slidehow" component={slidehow}/>
+                <Route path="/slideshow" component={slideshow}/>
                 <Route path="/timer" component={timer}/>
                 <Route path="/todos" component={todo}/>
                 <Route component={Error}/>

@@ -1,5 +1,5 @@
 let appLinks = [
-    "Contact","Randomcolor","Randommeme","Slidehow","Timer","Todos"
+    "Contact","RandomColor","RandomMeme","SlideShow","Timer","Todos"
 ]
 
 export default appLinks;
