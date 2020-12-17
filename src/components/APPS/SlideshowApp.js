@@ -6,11 +6,16 @@ import navPrev from './Data/nav_prev.svg'
 import navNext from './Data/nav_next.svg'
 
 
+
+
+
 class SlideShowApp extends React.Component {
     state={
         slideIndex: 2,
-        lines: 0
+        lines: 0,
+        id: 0
     }
+
 
     showSlides = () => {
         let slides = document.querySelectorAll('.myslides')
@@ -51,7 +56,40 @@ class SlideShowApp extends React.Component {
         }
     }
 
+    handleAuto = () => {
+        let slides = document.querySelectorAll('.myslides')
+        let len = slides.length
+        let index = this.state.slideIndex
+        index += 1
+
+        index < 1 ? this.setState({slideIndex:len}) : index > len ? this.setState({slideIndex: 1}) : this.setState({slideIndex:index})
+
+        this.showSlides()
+        this.handleFill()
+        
+    }
+
+    componentDidMount = ()=> {
+        let intervalID = setInterval(() => {
+            this.handleAuto()
+           
+        }, 4000);
+        this.setState({
+            id:intervalID
+        })
+        
+    }
+    
+    componentDidUpdate = () => {
+        clearInterval(this.state.intervalID)
+
+    }   
+
+  
+
     render(){
+    
+
         return(
             <div className="section">
                <div className="slideShow">
