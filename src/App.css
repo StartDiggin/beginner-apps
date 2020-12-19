@@ -7,11 +7,13 @@
 @import "./css/home.css";
 
 .App {
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
   font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
+  padding: 20px;
 }
 
 .main {
@@ -21,7 +23,7 @@
 /* sections */
 .section {
   background: linear-gradient(#fff, #000);
-  height: 100vh;
+  height: 77vh;
   margin-top: 50px;
   position: relative;
 }

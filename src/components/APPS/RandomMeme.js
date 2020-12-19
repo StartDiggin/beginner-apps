@@ -58,13 +58,14 @@ class RandomMeme extends React.Component{
                         <input 
                             type="text"
                             name="topText"
-                            // value={this.state.topText}
+                            placeholder="Top Text"
                             onChange={this.handleChange}
                         /> <br />
                         <label>Bottom text:</label>
                         <input 
                             type="text"
                             name="btmText"
+                            placeholder="Bottom Text"
                             onChange={this.handleChange}
                         />
                         <button>Meme</button>

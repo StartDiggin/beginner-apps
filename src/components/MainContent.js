@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import contact from './APPS/ContactApp'
-import randomcolor from './APPS/RandomColor'
-import randommeme from './APPS/RandomMeme'
+import Contact from './APPS/ContactApp'
+import Randomcolor from './APPS/RandomColor'
+import Randommeme from './APPS/RandomMeme'
 import Slideshow from './APPS/SlideshowApp'
-import timer from './APPS/TimerApp'
-import todo from './APPS/TodoApp'
+import Timer from './APPS/TimerApp'
+import Todo from './APPS/TodoApp'
 
 import Error from './Error'
 import Home from './Home'
@@ -30,14 +30,13 @@ class Header extends Component {
             <div className="main__content">
                 <Switch>
                 {/* <Route path="/" component={Home} exact/> */}
-                <Route path="/" render={props => <Home {...props} auto={{auto: false}} />} exact/>
-                <Route path="/contact" component={contact}/>
-                <Route path="/randomcolor" component={randomcolor}/>
-                <Route path="/randommeme" component={randommeme}/>
-                {/* <Route path="/slideshow" component={slideshow} /> */}
-                <Route path="/slideshow"  render={props => <Slideshow {...props} auto={this.state} />} />
-                <Route path="/timer" component={timer}/>
-                <Route path="/todos" component={todo}/>
+                <Route path="/" component={Home} exact/>
+                <Route path="/contact" component={Contact}/>
+                <Route path="/randomcolor" component={Randomcolor}/>
+                <Route path="/randommeme" component={Randommeme}/>
+                <Route path="/slideshow" component={Slideshow} />
+                <Route path="/timer" component={Timer}/>
+                <Route path="/todos" component={Todo}/>
                 <Route component={Error}/>
                 </Switch>
             </div> 
