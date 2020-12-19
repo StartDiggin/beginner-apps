@@ -5,10 +5,6 @@ import img3 from './Data/img3.jpg'
 import navPrev from './Data/nav_prev.svg'
 import navNext from './Data/nav_next.svg'
 
-
-
-
-
 class SlideShowApp extends React.Component {
     state={
         slideIndex: 2,
@@ -22,7 +18,6 @@ class SlideShowApp extends React.Component {
 
     showSlides = () => {
         let slides = document.querySelectorAll('.myslides')
-
         this.setState({lines: slides.length})
         for(let i=0;i<slides.length;i++){
             slides[i].classList.remove('activeImg')

@@ -51,12 +51,16 @@ class TodoApp extends React.Component {
     addTodo = (e) => {
         let id = Date.now()
         const {name, value} = e.target.todo
-        let todoObj = { id:id, name:name, value:value, completed: false}
-        let todoArray = this.state.todoData
-        todoArray.push(todoObj)
-        this.setState({
-            todoData:todoArray
-        })
+        if(value.length !== 0){
+            let todoObj = { id:id, name:name, value:value, completed: false}
+            let todoArray = this.state.todoData
+            todoArray.push(todoObj)
+            this.setState({
+                todoData:todoArray
+            })
+        } else {
+            alert("Please Enter a Todo")
+        }
     }
 
     handleDelete = (id) => {
@@ -78,12 +82,17 @@ class TodoApp extends React.Component {
     handleUpdate = (e) => {
         e.preventDefault()
         let id = this.state.id
-        this.setState(() => {
-            const todo = this.state.todoData.find(todo => todo.id === id)
-            todo.value = e.target.todo.value
-            return { todo }
-        })
-        this.resetState()
+        console.log(e.target.todo.value.length)
+        if(e.target.todo.value.length !== 0){
+            this.setState(() => {
+                const todo = this.state.todoData.find(todo => todo.id === id)
+                todo.value = e.target.todo.value
+                return { todo }
+            })
+            this.resetState()
+        } else {
+            alert("Please Enter Updated Todo!")
+        }
     }
 
     resetState = () => {
