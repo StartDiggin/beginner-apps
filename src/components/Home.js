@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const Home = () => {
+const Home = (props) => {
     
     return <div className="section">
         <div className="home">
@@ -13,7 +13,7 @@ const Home = () => {
                 look and I hope this helps anyone who is trying to learn React and is out of 
                 ideas of what to build. Thank you for stopping in, have a good one!!!
             </p>
-           
+           <button onClick={() => console.log(props)}>click</button>
         </div>
     </div>
 }
