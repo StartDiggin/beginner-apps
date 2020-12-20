@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink} from 'react-router-dom'
 
 
-// render={props => (<Homepage {...props} pieceOfState={this.state.pieceOfState}/>)
+
 
 
 const Nav = () => {
@@ -17,6 +17,10 @@ const Nav = () => {
                 <NavLink to="/timer" className="nav__item">Timer</NavLink>
                 <NavLink to="/todos" className="nav__item">Todos</NavLink>
             </ul>
+
+            <div className="icon-one">
+                <div className="navMenu navMenu-one"></div>
+            </div>
         </div>
     )
 }
