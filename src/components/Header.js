@@ -6,6 +6,7 @@ class Header extends Component {
       return (      
           <div className="header"> 
             <h1 id='header'>Starter Projects</h1>
+            <h1 id='header-min'>Projects</h1>
           </div> 
       );
     }

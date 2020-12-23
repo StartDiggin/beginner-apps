@@ -1,4 +1,6 @@
 .home {
   width: 60rem;
   margin: auto;
+  position: relative;
+  /* border: 1px solid red; */
 }

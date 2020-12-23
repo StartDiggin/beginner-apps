@@ -1,19 +1,30 @@
+:root {
+  --textColor: rgb(37, 37, 37);
+  --iconColor: #fff;
+}
+
 /* Header section  */
 .header {
   grid-column: 1/-1;
-  font-family: "Permanent Marker", cursive;
-  font-size: 3.5rem;
-  letter-spacing: 0.3rem;
   background: linear-gradient(#000, #fff);
+  letter-spacing: 0.3rem;
 }
 
 #header {
   letter-spacing: 1rem;
+  font-size: 5rem;
+  font-family: "Permanent Marker", cursive;
+}
+#header-min {
+  letter-spacing: 1rem;
+  font-size: 5rem;
+  font-family: "Permanent Marker", cursive;
 }
 
 /* Navigation Section  */
 .nav {
   grid-column: 1/-1;
+  position: relative;
 }
 
 .nav__links {
@@ -24,7 +35,7 @@
 /* single a links  */
 
 .nav__item {
-  color: rgb(37, 37, 37);
+  color: var(--textColor);
   text-decoration: none;
   position: relative;
   filter: drop-shadow(0.3rem 0.2rem 0.3rem);
@@ -51,16 +62,98 @@
   left: 0;
 }
 
-/* nav Menu Items hamburger link  */
+/* nav Menu for small screens  */
+.navMenu__container {
+  width: 15rem;
+  position: absolute;
+  top: -7rem;
+  right: 2rem;
+  background: transparent;
+  transition: all 5s;
+  margin-top: 1.5rem;
+  z-index: 1;
+}
+
+/* menu animations */
+@keyframes menuMoveIn {
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .navMenu {
+  opacity: 0;
+}
+
+.activeMenu {
+  animation: menuMoveIn 0.1s ease-out 0.1s;
+  opacity: 1;
+  animation-fill-mode: backwards;
+}
+
+.navMenu__items {
+  padding: 0;
+  line-height: 1.7rem;
+}
+.navMenu__item {
+  display: block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--textColor);
+  position: relative;
+  filter: drop-shadow(0.3rem 0.2rem 0.3rem);
+}
+
+/* nav Menu Items hamburger link  */
+.iconContainer {
+  display: block;
+  position: fixed;
+  top: 8rem;
+  right: 10rem;
+  z-index: 101;
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+  padding-top: 0.75rem;
+  /* border: 1px solid red; */
+}
+
+.navMenu__icon {
+  content: "";
+  height: 0.5rem;
+  width: 3rem;
+  display: inline-block;
+  background-color: var(--iconColor);
+  display: none;
+}
+
+.navMenu__icon::before {
   content: "";
   display: inline-block;
   height: 0.5rem;
   width: 3rem;
-  position: absolute;
-  top: 10rem;
-  left: 10rem;
-  background-color: red;
+  transform: translateY(0.75rem);
+  background-color: var(--iconColor);
+  /* background-color: red; */
+  /* display: none; */
+}
 
-  z-index: 100;
+.navMenu__icon::after {
+  content: "";
+  display: inline-block;
+  height: 0.5rem;
+  width: 3rem;
+  transform: translateY(0.75rem);
+  background-color: var(--iconColor);
+  /* background-color: green; */
+  /* display: none; */
+}
+
+.activeIcon {
+  transform: rotate(90deg) translateY(-0.25rem);
 }

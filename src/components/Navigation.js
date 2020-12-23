@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom'
+import NavMenu from './APPS/subComponents/navMenu'
 
 
 
@@ -18,8 +19,8 @@ const Nav = () => {
                 <NavLink to="/todos" className="nav__item">Todos</NavLink>
             </ul>
             {/* Hamburger menu icon  */}
-            <div className="navMenu"></div>
-            
+           
+            <NavMenu />
         
         </div>
     )
