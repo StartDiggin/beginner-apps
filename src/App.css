@@ -6,7 +6,9 @@
 @import "./css/todo.css";
 @import "./css/home.css";
 
-/* Media Queries  */
+html {
+  font-size: 62.5%; /* 1rem === 10pxs*/
+}
 
 .App {
   height: 100vh;
@@ -14,11 +16,11 @@
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
   font-family: "Roboto", sans-serif;
-  letter-spacing: 3px;
-  padding: 20px;
+  letter-spacing: 0.3rem;
+  padding: 2rem;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 40rem) {
   .App {
     color: red;
     display: grid;
@@ -28,7 +30,7 @@
   }
 }
 
-@media only screen and (min-width: 401px) and (max-width: 900px) {
+@media only screen and (min-width: 40.1rem) and (max-width: 90rem) {
   .App {
     color: green;
   }
@@ -42,7 +44,7 @@
 .section {
   background: linear-gradient(#fff, #000);
   height: 77vh;
-  margin-top: 50px;
+  margin-top: 5rem;
   position: relative;
 }
 
@@ -51,9 +53,9 @@
   display: inline-block;
   width: 32%;
   position: absolute;
-  top: 35px;
+  top: 3.5rem;
   left: 34%;
-  height: 2px;
+  height: 0.2rem;
   background-color: #000;
 }
 

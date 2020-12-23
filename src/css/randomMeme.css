@@ -1,17 +1,17 @@
 .randImg {
-  height: 400px;
-  width: 500px;
-  margin: 50px;
+  height: 40rem;
+  width: 50rem;
+  margin: 5rem;
 }
 
 .topText {
-  transform: translateY(-470px);
+  transform: translateY(-47rem);
   font-size: 2rem;
-  text-shadow: 2px 2px #fff;
+  text-shadow: 0.2rem 0.2rem #fff;
 }
 
 .btmText {
-  transform: translateY(-220px);
+  transform: translateY(-22rem);
   font-size: 2rem;
-  text-shadow: 2px 2px #fff;
+  text-shadow: 0.2rem 0.2rem #fff;
 }

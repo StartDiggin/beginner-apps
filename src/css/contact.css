@@ -12,31 +12,31 @@
 
 .contactForm {
   grid-column: 1/-1;
-  margin: 10px;
+  margin: 1rem;
 }
 
 input {
-  margin: 5px;
+  margin: 0.5rem;
 }
 
 .contactDisplay {
   grid-column: 1/-1;
-  margin: 10px;
+  margin: 1rem;
 }
 
 .contactView {
   visibility: hidden;
   grid-column: 1/-1;
-  margin: 50px auto;
-  height: 400px;
-  width: 400px;
+  margin: 5rem auto;
+  height: 40rem;
+  width: 40rem;
   /* border: 1px solid red; */
 }
 
 .activeView {
   visibility: visible;
   color: rgb(241, 241, 241);
-  text-shadow: 2px 2px rgb(0, 0, 0);
+  text-shadow: 0.2rem 0.2rem rgb(0, 0, 0);
 }
 
 .contactViewClose {
@@ -44,7 +44,7 @@ input {
   left: 55%;
   top: 55%;
   border: none;
-  font-size: 20px;
+  font-size: 2rem;
   background: none;
   cursor: pointer;
   border-radius: 50%;
@@ -55,11 +55,11 @@ input {
   border: none;
   background-color: #fff;
   cursor: pointer;
-  margin: 5px;
+  margin: 0.5rem;
 }
 
 .contactBtn {
-  margin: 10px;
+  margin: 1rem;
 }
 
 .editContact {
